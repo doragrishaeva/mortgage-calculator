@@ -1,0 +1,39 @@
+html {
+    font-size: 10px;
+}
+
+body {
+    background: url("../../assets/images/bg.svg");
+    background-size: 100%;
+    background-repeat: repeat;
+    font-family: $main-font;
+    text-transform: uppercase;
+}
+
+.app {
+    display: flex;
+    margin: 5% 0 0 10%;
+}
+
+button, input {
+    border-radius: $main-radius;
+    box-shadow: $main-shadow;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+// Media queries 
+@media only screen and (min-width: 1600px) {
+    .app {
+        margin: 10% 0 0 15%;
+    }
+}
+
+@media only screen and (max-width: 1024px) {
+    .app {
+        flex-direction: column;
+        margin: 20% 0 0 0;
+    }
+}
+

@@ -1,0 +1,20 @@
+{
+  "name": "mortgage-calculator",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "style": "sass --watch scss/style.scss scss/style.css",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/doragrishaeva/mortgage-calculator.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/doragrishaeva/mortgage-calculator/issues"
+  },
+  "homepage": "https://github.com/doragrishaeva/mortgage-calculator#readme"
+}

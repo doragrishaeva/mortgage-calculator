@@ -1,0 +1,43 @@
+.result {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-content: space-between;
+    background-color: $form-bg-color;
+    padding: 3% 2%;
+    border-radius: 10px;
+    box-shadow: 10px 10px 10px rgba(0,0,0,0.5);
+    height: 50%;
+    max-width: 400px;
+}
+
+.result__point {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
+
+.result__point:nth-child(even) {
+    text-align: right;
+}
+
+.result__point-label, .result__point-sum {
+    color: $text-color;
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin-bottom: 5px;
+    letter-spacing: 0.5px;
+}
+
+.result__point-sum {
+    font-size: 1.6rem;
+}
+
+// Media queries 
+@media only screen and (max-width: 1024px) {
+    .app__result {
+        min-width: 60%;
+        margin: 0 auto;
+    }
+}

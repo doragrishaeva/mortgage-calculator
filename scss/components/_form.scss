@@ -1,0 +1,130 @@
+.form {
+    display: flex;
+    flex-direction: column;
+    background-color: $form-bg-color;
+    padding: 3% 10% 3% 3%;
+    border-radius: 10px;
+    box-shadow: 10px 10px 10px rgba(0,0,0,0.5);
+}
+
+.app__form {
+    margin-right: 5%;
+}
+
+.form__item {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    margin-bottom: 10%;
+    position: relative;
+}
+
+.form__item-label {
+    color: $text-color;
+    font-size: 1.4rem;
+    font-weight: 500;
+    margin-bottom: 5px;
+    letter-spacing: 0.5px;
+}
+
+.form__item-input {
+    padding: 10px 10px 10px 15px;
+    width: 100%;
+    background-color: $input-bg-color;
+    color: $input-text-color;
+}
+
+.form__inner-item-label {
+    position: absolute;
+    top: 33px;
+    right: -15px;
+    text-align: right;
+    color: $input-text-color;
+    font-size: 1.4rem;
+    text-transform: lowercase;
+}
+
+// Buttons
+.form__percentage-buttons {
+    margin-top: 8px;
+}
+
+.form__percentage-button {
+    margin-right: 5px;
+    margin-bottom: 5px;
+    padding: 5px;
+    background-color: $percentage-color;
+    box-shadow: $main-shadow;
+    transition: $main-transition;
+    border: 1.5px solid transparent;
+}
+
+.form__percentage-button_active, .form__percentage-button:hover {
+    background-color: rgba($percentage-color, 0.4);
+    box-shadow: $main-shadow;
+    transition: $main-transition;
+    border: 1.5px solid $hover-border-color;
+}
+
+.form__main-button {
+    letter-spacing: 0.5px;
+    padding: 10px 20px;
+    text-transform: uppercase;
+    color: $text-color;
+    font-weight: 500;
+    background-color: $btn-color;
+    transition: $main-transition;
+    border: 1.5px solid transparent;
+}
+
+.form__main-button:first-of-type {
+    margin-right: 5px;
+}
+
+.form__main-button:last-of-type:hover {
+    background-color: rgba($percentage-color, 0.7);
+    border: 1.5px solid $hover-border-color;
+    transition: $main-transition;
+}
+
+.form__main-button:hover {
+    background-color: rgba($btn-color, 0.5);
+    transition: $main-transition;
+    border: 1.5px solid $hover-border-color;
+}
+
+// Media queries 
+@media only screen and (max-width: 1024px) {
+    .app__form {
+        width: 50%;
+        margin: 0 auto;
+        margin-bottom: 5%;
+    }
+    .form__item {
+        width: 60%;
+    }
+}
+
+@media only screen and (max-width: 850px) {
+    .form__item {
+        width: 70%;
+    }
+}
+
+@media only screen and (max-width: 700px) {
+    .form__item {
+        width: 90%;
+    }
+}
+
+@media only screen and (max-width: 550px) {
+    .app__form {
+        width: 60%;
+    }
+}
+
+@media only screen and (max-width: 440px) {
+    .app__form {
+        width: 88%;
+    }
+}

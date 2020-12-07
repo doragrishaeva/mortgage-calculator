@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="assets/images/favicon.ico" type="image/x-icon">
+    <!-- Import fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Styles -->
+    <link rel="stylesheet" type="text/css" href="./scss/style.css">
+    <title>Mortgage calculator</title>
+</head>
+<body>
+    <div id="app" class="app">
+        <div class="form app__form">
+            <div class="form__item">
+                <label class="form__item-label">Стоимость недвижимости</label>
+                <input 
+                    id="property-cost"
+                    class="form__item-input"
+                    onkeypress='return event.charCode >= 48 && event.charCode <= 57'
+                    v-model="propertyCost"
+                    @input="makeNumberWithSpaces(propertyCost, 'propertyCost');
+                    linkCostAndInitialPayment('change', 'cost');"
+                />
+                <label for="property-cost" class="form__inner-item-label">₽</label>
+            </div>
+            <div class="form__item">
+                <label class="form__item-label">Первоначальный взнос</label>
+                <input 
+                    id="initial-payment"
+                    class="form__item-input"
+                    onkeypress='return event.charCode >= 48 && event.charCode <= 57'
+                    v-model="initialPayment"
+                    @input="makeNumberWithSpaces(initialPayment, 'initialPayment');
+                    linkCostAndInitialPayment('change', 'payment');"
+                />
+                <label for="initial-payment" class="form__inner-item-label">₽</label>
+                <div class="form__percentage-buttons">
+                    <button class="form__percentage-button" 
+                        v-for="percent in initialPercent"
+                        :class="{'form__percentage-button_active': percent.active === true}" 
+                        @click="changeInitialPercent(percent.number)">
+                        {{percent.number}}
+                    </button>
+                </div>
+            </div>
+            <div class="form__item">
+                <label class="form__item-label">Срок кредита</label>
+                <input 
+                    id="credit-term"
+                    class="form__item-input"
+                    onkeypress='return event.charCode >= 48 && event.charCode <= 57'
+                    v-model="creditTerm"
+                    @input="makeNumberWithSpaces(creditTerm, 'creditTerm')"
+                />
+                <label for="credit-term" class="form__inner-item-label">{{declensionOfYears}}</label>
+            </div>
+            <div class="form__item">
+                <label class="form__item-label">Процентная ставка</label>
+                <input 
+                    id="credit-percent"
+                    class="form__item-input"
+                    onkeypress='return event.charCode >= 48 && event.charCode <= 57'
+                    v-model="creditPercent"
+                    @input="makeNumberWithSpaces(creditPercent, 'creditPercent')"
+                />
+                <label for="credit-percent" class="form__inner-item-label">%</label>
+            </div>
+            <div class="form__main-buttons">
+                <button class="form__main-button" @click="saveFields">Save</button>
+                <button class="form__main-button" @click="clearFields">Clear</button>
+            </div>
+        </div>
+        <div class="result app__result">
+            <div class="result__point">
+                <p class="result__point-label">Ежемесячный платеж</p>
+                <p class="result__point-sum">{{monthlyPayment}}</p>
+            </div>
+            <div class="result__point">
+                <p class="result__point-label">Необходимый доход</p>
+                <p class="result__point-sum">{{requiredIncome}}</p>
+            </div>
+            <div class="result__point">
+                <p class="result__point-label">Переплата</p>
+                <p class="result__point-sum">{{overPayment}}</p>
+            </div>
+            <div class="result__point">
+                <p class="result__point-label">Тело кредита</p>
+                <p class="result__point-sum">{{loan}}</p>
+            </div>
+        </div>
+    </div>
+    <!-- Import Vue js -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <!-- Main script file -->
+    <script src="index.js"></script>
+</body>
+</html>
+
